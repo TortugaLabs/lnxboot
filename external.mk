@@ -25,6 +25,5 @@ run-qemu: $(O)/images/qemu.img
         --boot uefi
 
 lnxboot-update:
-#~ 	make savedefconfig  # This doesn't work
-#~ 	 BR2_DEFCONFIG=$(BR2_EXTERNAL_LNXBOOT_PATH)/configs/lnxboot_defconfig
-	make -C $(O) linux-update-defconfig BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE=linux.config
+	make -C $(O) savedefconfig
+	make -C $(O) linux-update-defconfig BR2_LINUX_KERNEL_CUSTOM_CONFIG_FILE=$(BR2_EXTERNAL_LNXBOOT_PATH)/board/lnxboot/linux.config
